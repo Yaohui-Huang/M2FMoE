@@ -1,7 +1,17 @@
 # M$^2$FMoE: Multi-Resolution Multi-View Frequency Mixture-of-Experts for Extreme-Adaptive Time Series Forecasting
 
-## Abstract
-Forecasting time series with extreme events is difficult because such events are sparse, high-variance, and temporally irregular, causing large real-world errors for models that mainly capture regular patterns. We propose **MFMoE**, an extreme-adaptive forecasting model that learns regular and extreme dynamics via multi-resolution, multi-view frequency modeling. MFMoE uses a multi-view frequency mixture-of-experts over Fourier and wavelet spect`ra, with a shared band splitter to align partitions and encourage cross-view collaboration. A hierarchical adaptive fusion module aggregates coarse-to-fine frequency features, and a temporal gating module balances long-term trends with short-term frequency-aware signals. Experiments on hydrological datasets show MFMoE outperforms strong baselines without extreme-event labels.
+## Motivation
+
+
+![Fig. 1: Comparison of frequency spectra between regular and extreme events.](./assets/intro.png)
+
+Frequency-domain representations provide an effective way to decompose temporal dynamics into spectral components, separating high-frequency fluctuations from low-frequency trends.
+
+As illustrated in **Fig. 1(a)–(d)**, the differenced sequences $\Delta\mathbf{X}$ show clear contrasts between extreme and regular events. These differences are amplified in the wavelet domain (**Fig. 1(e), (g)**), where extreme events yield sharp, localized energy at fine resolutions; as the resolution becomes coarser, energy shifts toward lower frequencies with reduced intensity while the event structure remains consistent. In contrast, regular events exhibit smooth low-frequency dynamics, producing diffuse and uniform energy across resolutions. Similar patterns appear in the Fourier domain (**Fig. 1(f), (h)**): extreme sequences show broad-spectrum, multi-peaked energy with slow spectral decay, whereas regular sequences concentrate energy within narrow low-frequency bands.
+
+## Model Architecture
+
+![Fig. 2: The proposed M2FMoE](./assets/Overview.png)
 
 ## Acknowledgements
 We thank the authors of the following repositories for their open-source code or datasets used in our experiments:
